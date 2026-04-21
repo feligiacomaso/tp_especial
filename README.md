@@ -14,5 +14,5 @@ Este sitio web permite mostrar distintos artistas con su informacion personal co
 Diagrama de entidad relacion (DER)
 
 
+<img width="570" height="199" alt="DER" src="https://github.com/user-attachments/assets/b5543a08-7167-4c52-b12c-cd1d921f7847" />
 
-<img width="570" height="199" alt="image" src="https://github.com/user-attachments/assets/54e9a08c-6107-4cef-8c36-cd7e629dedcc" />

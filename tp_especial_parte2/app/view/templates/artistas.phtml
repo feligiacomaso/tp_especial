@@ -1,0 +1,44 @@
+<?php require_once __DIR__ . '/layout/header.phtml'; ?>
+
+<div class="container my-5">
+
+    <h1 class="text-center mb-5">Artistas</h1>
+
+    <div class="row g-4">
+
+        <?php foreach ($artistas as $artista) { ?>
+            <div class="col-md-4">
+
+                <div class="card h-100 shadow">
+
+                    <img src="<?= $artista->imagen ?>" 
+                         class="card-img-top img-artista"
+                         alt="<?= $artista->nombre_artistico ?>">
+
+                    <div class="card-body d-flex flex-column">
+
+                        <h5 class="card-title">
+                            <?= $artista->nombre_artistico ?>
+                        </h5>
+
+                        <p class="card-text">
+                            <strong>Género:</strong> <?= $artista->genero ?>
+                        </p>
+
+                        <a href="<?= BASE_URL ?>home/<?= $artista->id_artista ?>"
+                           class="btn mt-auto violet boton">
+                            Ver artista
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        <?php } ?>
+
+    </div>
+
+</div>
+
+<?php require_once __DIR__ . '/layout/footer.phtml'; ?>

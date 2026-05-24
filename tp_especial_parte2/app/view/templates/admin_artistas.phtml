@@ -1,0 +1,74 @@
+<?php require_once __DIR__ . '/layout/header.phtml'; ?>
+
+<div class="container my-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>Administrar artistas</h1>
+
+        <a href="<?= BASE_URL ?>showFormArtista"
+           class="btn btn-success">
+            Agregar artista
+        </a>
+
+    </div>
+
+
+    <table class="table table-striped table-hover">
+
+        <thead class="violet">
+
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre artístico</th>
+                <th>Género</th>
+                <th>Acciones</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <?php foreach ($artistas as $artista) { ?>
+
+                <tr>
+
+                    <td>
+                        <img src="<?= $artista->imagen ?>"
+                             class="admin-img">
+                    </td>
+
+                    <td>
+                        <?= $artista->nombre_artistico ?>
+                    </td>
+
+                    <td>
+                        <?= $artista->genero ?>
+                    </td>
+
+                    <td>
+
+                        <a href="<?= BASE_URL ?>editArtista/<?= $artista->id_artista ?>"
+                           class="btn btn-warning btn-sm">
+                            Editar
+                        </a>
+
+                        <a href="<?= BASE_URL ?>deleteArtista/<?= $artista->id_artista ?>"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('¿Eliminar artista?')">
+                            Eliminar
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            <?php } ?>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<?php require_once __DIR__ . '/layout/footer.phtml'; ?>

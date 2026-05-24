@@ -1,0 +1,114 @@
+<?php require_once __DIR__ . '/layout/header.phtml'; ?>
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow">
+
+                <div class="card-body">
+
+                    <?= isset($album)
+                        ? 'Editar álbum'
+                        : 'Agregar álbum' ?>
+
+                    <form action="<?= isset($album)
+                        ? BASE_URL . 'updateAlbum/' . $album->id_album
+                        : BASE_URL . 'addAlbum' ?>" method="POST">
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Nombre
+                            </label>
+
+                            <input type="text"
+                                   name="nombre"
+                                   class="form-control"
+                                   value="<?= $album->nombre ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Fecha de lanzamiento
+                            </label>
+
+                            <input type="date"
+                                   name="fecha_lanzamiento"
+                                   class="form-control"
+                                   value="<?= $album->fecha_lanzamiento ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Cantidad de canciones
+                            </label>
+
+                            <input type="number"
+                                   name="cantidad_canciones"
+                                   class="form-control"
+                                   value="<?= $album->cantidad_canciones ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                URL imagen
+                            </label>
+
+                            <input type="text"
+                                   name="imagen"
+                                   class="form-control"
+                                   value="<?= $album->imagen ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Artista
+                            </label>
+
+                            <select name="id_artista"
+                                    class="form-select"
+                                    required>
+
+                                <?php foreach ($artistas as $artista) { ?>
+
+                                    <option value="<?= $artista->id_artista ?>"
+
+                                        <?= (isset($album) && $album->id_artista == $artista->id_artista)
+                                            ? 'selected'
+                                            : '' ?>>
+
+                                        <?= $artista->nombre_artistico ?>
+
+                                    </option>
+
+                                <?php } ?>
+
+                            </select>
+
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-success">
+                            Agregar álbum
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<?php require_once __DIR__ . '/layout/footer.phtml'; ?>

@@ -1,0 +1,37 @@
+
+<div class="row g-4">
+
+    <?php foreach ($albumes as $album) { ?>
+    
+        <div class="col-md-4">
+
+            <div class="card h-100 shadow">
+                <img src="<?= $album->imagen ?>"
+                     class="card-img-top img-album"
+                     alt="<?= $album->nombre ?>">
+
+                <div class="card-body d-flex flex-column">
+
+                    <h5><?= $album->nombre ?></h5>
+
+                    <p>
+                        <strong>Canciones:</strong>
+                        <?= $album->cantidad_canciones ?>
+                    </p>
+                    <p>
+                        <strong>Artista:</strong>
+                        <?= $album->nombre_artistico ?>
+                    </p>
+                    <a href="<?= BASE_URL ?>album/<?= $album->id_album ?>"
+                       class="btn mt-auto violet boton">
+                        Ver álbum
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    <?php } ?>
+
+</div>

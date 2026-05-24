@@ -1,0 +1,73 @@
+<?php require_once __DIR__ . '/layout/header.phtml'; ?>
+
+<div class="container my-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h1>Administrar álbumes</h1>
+
+        <a href="<?= BASE_URL ?>showFormAlbum"
+           class="btn btn-success">
+            Agregar álbum
+        </a>
+
+    </div>
+
+    <table class="table table-striped table-hover">
+
+        <thead class="violet">
+
+            <tr>
+                <th>Imagen</th>
+                <th>Álbum</th>
+                <th>Artista</th>
+                <th>Acciones</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <?php foreach ($albumes as $album) { ?>
+
+                <tr>
+
+                    <td>
+                        <img src="<?= $album->imagen ?>"
+                             class="admin-img">
+                    </td>
+
+                    <td>
+                        <?= $album->nombre ?>
+                    </td>
+
+                    <td>
+                        <?= $album->nombre_artistico ?>
+                    </td>
+
+                    <td>
+
+                        <a href="<?= BASE_URL ?>editAlbum/<?= $album->id_album ?>"
+                           class="btn btn-warning btn-sm">
+                            Editar
+                        </a>
+
+                        <a href="<?= BASE_URL ?>deleteAlbum/<?= $album->id_album ?>"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('¿Eliminar álbum?')">
+                            Eliminar
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            <?php } ?>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<?php require_once __DIR__ . '/layout/footer.phtml'; ?>

@@ -1,0 +1,38 @@
+<?php require_once __DIR__ . '/layout/header.phtml'; ?>
+
+<div class="container my-5">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <img src="<?= $album->imagen ?>"
+                 class="img-fluid rounded shadow img-detalle-album"
+                 alt="<?= $album->nombre ?>">
+        </div>
+
+        <div class="col-md-8">
+
+            <h1><?= $album->nombre ?></h1>
+
+            <p>
+                <strong>Artista:</strong>
+                <?= $album->nombre_artistico ?>
+            </p>
+
+            <p>
+                <strong>Fecha de lanzamiento:</strong>
+                <?= $album->fecha_lanzamiento ?>
+            </p>
+
+            <p>
+                <strong>Cantidad de canciones:</strong>
+                <?= $album->cantidad_canciones ?>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<?php require_once __DIR__ . '/layout/footer.phtml'; ?>

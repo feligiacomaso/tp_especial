@@ -1,0 +1,102 @@
+<?php require_once __DIR__ . '/layout/header.phtml'; ?>
+
+<div class="container my-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <div class="card shadow">
+
+                <div class="card-body">
+
+                    <h2 class="mb-4">
+                        <?= isset($artista)
+                         ? 'Editar artista'
+                         : 'Agregar artista' ?>
+                    </h2>
+
+                    <form action="<?= isset($artista) 
+                    ? BASE_URL . 'updateArtista/' . $artista->id_artista
+                    : BASE_URL . 'addArtista' ?>" method="POST">
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Nombre artístico
+                            </label>
+
+                            <input type="text"
+                                   name="nombre_artistico"
+                                   class="form-control"
+                                   value="<?= $artista->nombre_artistico ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Nombre completo
+                            </label>
+
+                            <input type="text"
+                                   name="nombre_completo"
+                                   class="form-control"
+                                   value="<?= $artista->nombre_completo ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Fecha de nacimiento
+                            </label>
+
+                            <input type="date"
+                                   name="fecha_nacimiento"
+                                   class="form-control"
+                                   value="<?= $artista->fecha_nacimiento ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Género
+                            </label>
+
+                            <input type="text"
+                                   name="genero"
+                                   class="form-control"
+                                   value="<?= $artista->genero ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                URL imagen
+                            </label>
+
+                            <input type="text"
+                                   name="imagen"
+                                   class="form-control"
+                                   value="<?= $artista->imagen ?? '' ?>"
+                                   required>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-success">
+                                <?= isset($artista)
+                                ? 'Guardar cambios'
+                                : 'Agregar artista' ?>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<?php require_once __DIR__ . '/layout/footer.phtml'; ?>

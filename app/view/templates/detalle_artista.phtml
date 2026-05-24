@@ -1,0 +1,35 @@
+<?php require_once __DIR__ . '/layout/header.phtml'; ?>
+
+<div class="container my-5">
+
+    <div class="row mb-5">
+
+        <div class="col-md-4">
+            <img src="<?= $artista->imagen ?>"
+                 class="img-fluid rounded shadow img-detalle-artista"
+                 alt="<?= $artista->nombre_artistico ?>">
+        </div>
+
+        <div class="col-md-8">
+            <h1><?= $artista->nombre_artistico ?></h1>
+
+            <p>
+                <strong>Nombre completo:</strong>
+                <?= $artista->nombre_completo ?>
+            </p>
+
+            <p>
+                <strong>Fecha de nacimiento:</strong>
+                <?= $artista->fecha_nacimiento ?>
+            </p>
+
+            <p>
+                <strong>Género:</strong>
+                <?= $artista->genero ?>
+            </p>
+        </div>
+
+    </div>
+<?php require_once __DIR__ . '/components/albumes_cards.phtml'; ?>
+
+<?php require_once __DIR__ . '/layout/footer.phtml'; ?>
